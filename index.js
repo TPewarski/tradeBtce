@@ -1,0 +1,1 @@
+const {apikey, apiSecret} = require('./config.json');
