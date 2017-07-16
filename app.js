@@ -9,9 +9,17 @@ const params = {
 	amount: 0.1983138
 };
 
+const pairs = [
+	'btc_usd'
+]
+
 const currentOrders = {};
 
-btce.placeOrder(params)
+btce.getOrderBook(pairs[0], 2)
+	.then(resp => {
+		console.log('orderBook', resp);
+	})
+	.then(() => btce.placeOrder(params))
 	.then(tradeResp => {
 		const {return: {order_id}} = tradeResp;
 		console.log('Your Order', tradeResp.return);
