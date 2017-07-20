@@ -30,5 +30,8 @@ module.exports = (apiKey, apiSecret) => ({
 	cancelOrder: (orderID) => placeOrder({
 		method: 'CancelOrder',
 		order_id: orderID
+	}, apiKey, apiSecret),
+	getInfo: () => placeOrder({
+		method: 'getInfo'
 	}, apiKey, apiSecret)
 });
